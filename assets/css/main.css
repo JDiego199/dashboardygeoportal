@@ -4,12 +4,14 @@ body {
 }
 
 #map {
-    position: absolute;
-    top: 30px;
-    bottom: 10px;
-    width: 1000px;
-    height: 500px;
-    border-radius: 15px;
+   /*  position: absolute;
+   top: 30px;
+    bottom: 10px;*/
+
+
+    height: 100%; 
+    width: 100%; 
+    padding: 455px;
 }
 .legend {
     line-height: 18px;
@@ -35,8 +37,151 @@ body {
     background: rgba(255,255,255,0.8);
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
     border-radius: 5px;
+
+    
 }
+.panelParroquias{
+    bottom: 55px;
+    right:250%;
+}
+
+
 .info h4 {
     margin: 0 0 5px;
     color: #777;
+}
+.info2 {
+    padding: 6px 8px;
+    font: 14px/16px Arial, Helvetica, sans-serif;
+    background: white;
+    background: rgba(255,255,255,0.8);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 5px;
+
+}
+.info2 h4 {
+    margin: 0 0 5px;
+    color: #777;
+}
+
+.rotated {
+    transform: rotate(180deg);
+  }
+  md-icon {
+    display: inline-block;
+    transition: all 1s;
+  }
+  .img{
+
+    height: 32px;
+    width: 32px;
+}
+.card-body{
+   /* display: inline;*/
+}
+.indicator img{
+    max-width: 40px;
+    max-height: 40px;
+    padding-right: 7px;
+}
+
+
+.indicator{
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color: rgb(0, 0, 0);
+    font-size: 10pt;
+    margin-bottom: 10px;
+    display: flex;
+}
+.value{
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color: rgb(0, 0, 0);
+   /* display: inline-block;*/
+    min-width: 85px;
+    font-size: 20pt;
+    margin: 0;
+    padding: 0;
+    vertical-align: top;
+}
+.name{
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color: rgb(64, 107, 160);
+    display: block;
+    font-size: 11pt;
+    padding-bottom: 5px;
+}
+.titulopanel{
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+    color: black;
+    font-size: 20px;
+}
+
+.Mapmenu{
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+    -webkit-font-smoothing: antialiased;
+    position: fixed;
+    
+    z-index: 900;
+    background: url(https://static.hungermapdata.org/hungermap/img/bottom_bar.png) no-repeat
+   
+}
+
+.inner{
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    margin: 0 auto;
+    padding-left: 500px;
+    
+}
+
+.MenuItem{
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    width: 110px;
+    display: flex;
+    flex-direction: column;
+    margin-top: -80px;
+}
+
+
+  .accordion-button:focus {
+    box-shadow: none;
+    border-color: rgba(0,0,0,.125);
+}
+
+.accordion-button{
+    background-color:transparent;
+}
+
+.accordion-item, .accordion-item:focus, .accordion-item:active,
+.accordion-header, .accordion-header:focus, .accordion-header:active,
+.accordion-button, .accordion-button:focus, .accordion-button:active {
+    background-color:transparent;
+    color: black;
+    font-weight: bold;
+    box-shadow: inset 0 -2px 0 rgb(0 0 0 / 13%);
+ 
+}
+.accordion-button:not(.collapsed) {
+    background-color:transparent;
+    color: black;
+    
+    
+}
+.accordion-button:not(.collapsed)::after {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23212529'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+    transform: rotate(-180deg);
+
+}
+.accordion-button::after {
+ 
 }
