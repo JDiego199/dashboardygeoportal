@@ -1,5 +1,7 @@
 'use strict"'
 
+
+
 // Map  objects
 //let map = L.map('map').setView([-1.669946, -78.652678], 13);
 
@@ -29,6 +31,10 @@ var CartoDB_Voyager = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles
 	maxZoom: 20
 });
 
+var Stadia_AlidadeSmoothDark = L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png', {
+	maxZoom: 20,
+	attribution: '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
+});
 
 
 let popup  = (feature, layer) => {
@@ -53,6 +59,7 @@ let etiqueta  = (feature, layerParroquias) => {
       mouseover: highlightFeature,
       mouseout: resetHighlight,
       click: zoomToFeature
+      
   });
 
   /*layerParroquias.bindPopup(`<div>
@@ -145,6 +152,7 @@ $.ajax({
   url: URL,
   success: function (data) {
     layerParroquias.addData(data);
+    soloParroquias.addData(data);
 
   }
 });
@@ -152,9 +160,14 @@ $.ajax({
 
 
 function getColor(d) {												
-  return d > 5? '#F56344' :									
- d < 4 ? '#7CF842' :		
- '#F79738';												
+  return d > 8? '#800026' :									
+ d > 7 ? '#BD0026' :
+ d > 6 ? '#E31A1C' :
+ d > 5 ? '#FC4E2A' :
+ d > 4 ? '#FD8D3C' :		
+ d > 3 ? '#FEB24C' :	
+ d > 2 ? '#FED976' :	
+ '#FFEDA0';												
   }
 
   
@@ -221,8 +234,12 @@ let layerParroquias = L.geoJson(null, {
   //  style: myStyle,
     onEachFeature: etiqueta,
     style: colorParroquias,
+    
 });
 
+let soloParroquias = L.geoJson(null,{
+  style: colorParroquias,
+});
 /*$.getJSON("http://localhost:3005/api/layers/personas", (data) => {
     
    layer.addData(data);
@@ -255,35 +272,99 @@ let layerParroquias = L.geoJson(null, {
 ////////////////////////////
 var info = L.control();
 
+
+
 info.onAdd = function (map) {
-    this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
+    this._div = L.DomUtil.create('div', 'info panelParroquias'); // create a div with a class "info"
     this.update();
     return this._div;
 };
 
+
 // method that we will use to update the control based on feature properties passed
 info.update = function (props) {
-    this._div.innerHTML = '<h4>Parroquias Riobamba</h4>' +  (props ?
+    this._div.innerHTML = '<div class=infoParroquias> <h4>Parroquias Riobamba</h4>' +  (props ?
         '<b>' + props.txt + '</b><br />' + 'Total: '+ props.total 
-        : '');
+        : '</div>');
 };
 
 
+//info.addTo(map);
+/////////////////////////////////////////
+var info2 = L.control({position: 'topleft'});
+
+info2.onAdd = function (map) {
+  this._div = L.DomUtil.create('div', 'info2'); 
+  
+  this._div.innerHTML = '  <div>'+
+ ' <h2 class="accordion-header" id="panelsStayOpen-headingOne">'+
+ '<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFS" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">'+
+    'Food Security&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+
+   ' </button></h2>'+
+ ' <div id="collapseFS" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">'+
+   ' <div class="accordion-body">'+
+   '<div class="indicator"><img src="https://cdn.icon-icons.com/icons2/908/PNG/512/family-of-three_icon-icons.com_70744.png" alt=""><div class="content"><span class="name">Population</span><div class="value">17.1<span class="unit">M</span></div></div></div>'+
+   '<div class="indicator"><img src="https://cdn.icon-icons.com/icons2/3275/PNG/512/salad_bowl_food_vegetables_vegan_healthy_food_icon_207951.png" alt=""><div class="content"><span class="name">People with insufficient food </span><div class="value">2.6<span class="unit">M</span></div></div></div>'+
+    '</div>'+
+ ' </div>'+
 
 
-info.addTo(map);
+  '<h2 class="accordion-header" id="panelsStayOpen-headingOne">'+
+'<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne"> '  +
+'Nutrition'+
+' </button></h2>'+
+' <div class="accordion-body">'+
+' <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">'+
+  '<div class="indicator"><img src="https://cdn-icons-png.flaticon.com/512/85/85909.png" alt=""><div class="content"><span class="name">Acute malnutrition</span><div class="value">1.6<span class="unit">%</span></div></div></div><div class="indicator"><img src="https://cdn-icons-png.flaticon.com/512/6047/6047582.png" alt=""><div class="content"><span class="name">Chronic malnutrition</span><div class="value">23.9<span class="unit">%</span></div></div></div> '+
+'</div>'+
+'</div>'+
+'</div>';
 
 
+  // this._div.innerHTML = '';
+  return this._div;
+};
+
+///menuMAP
+var menu = L.control({position: 'bottomleft'});
+
+menu.onAdd = function (map) {
+  this._div = L.DomUtil.create('div'); 
+  
+  this._div.innerHTML = '<div class="btn-group">'+
+'  <input type="radio" class="btn-check" name="options" value="coropletas" id="option1" autocomplete="off" checked />'+
+ ' <label class="btn btn-secondary" for="option1">Coropletas</label>'+
+
+'  <input type="radio" class="btn-check" name="options" value="puntos" id="option2" autocomplete="off" />'+
+'  <label class="btn btn-secondary" for="option2">Puntos</label>'+
+
+'  <input type="radio" class="btn-check" name="options" id="option3" autocomplete="off" />'+
+'  <label class="btn btn-secondary" for="option3">Radio</label>'+
+'</div>';
+
+
+  // this._div.innerHTML = '';
+  return this._div;
+};
+
+menu.addTo(map);
+// method that we will use to update the control based on feature properties passed
+info2.update = function (props) {
+  this._div.innerHTML = '<h4>Food Security</h4>';
+};
+
+info2.addTo(map);
 /////////////////////////////////////////
 var baseMaps = {
   "OSM": osmLayer,
   "stret": CartoDB_Voyager,
+  "oscura": Stadia_AlidadeSmoothDark,
   
 };
 
 var overlayMaps = {
 "Puntos": layer,
-"Parroquias": layerParroquias,
+//"Parroquias": layerParroquias,
 
 
 };
@@ -295,7 +376,7 @@ var legend = L.control({position: 'bottomright'});
 legend.onAdd = function (map) {
 
     var div = L.DomUtil.create('div', 'info legend'),
-        grades = [0, 3, 5],
+        grades = [2, 3, 4,5,6,7,8],
         labels = [];
 
     // loop through our density intervals and generate a label with a colored square for each interval
@@ -308,7 +389,6 @@ legend.onAdd = function (map) {
     return div;
 };
 
-legend.addTo(map);
 
 L.control.layers(baseMaps,overlayMaps ,{
 	position: 'topright', // 'topleft', 'bottomleft', 'bottomright'
@@ -317,3 +397,31 @@ L.control.layers(baseMaps,overlayMaps ,{
 }).addTo(map);
 
 //layer.addTo(map);
+
+///////mover icono collapse
+
+
+var menuOptions = document.getElementsByClassName('btn-check');
+
+
+for(radio in menuOptions) {
+  menuOptions[radio].onclick = function() {
+  
+      if(this.value == "coropletas"){       
+        layerParroquias.addTo(map);   
+        legend.addTo(map);
+        layer.remove();
+        info.addTo(map);
+     
+      }
+      if(this.value == "puntos"){
+      map.removeLayer(layerParroquias); 
+      //map.removeLayer(legend);
+      soloParroquias.addTo(map);
+        layer.addTo(map);
+        legend.remove();
+        info.remove();
+      
+      }
+  }
+}
