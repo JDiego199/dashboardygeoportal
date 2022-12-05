@@ -20612,7 +20612,7 @@ textarea[resize='horizontal']
     color: #adb5bd;
 }
 
-.map-canvas
+/*.map-canvas
 {
     position: relative;
 
@@ -20621,7 +20621,7 @@ textarea[resize='horizontal']
 
     border-radius: .375rem;
 }
-
+*/
 .mask
 {
     position: absolute;

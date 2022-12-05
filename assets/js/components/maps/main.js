@@ -9,11 +9,9 @@
 
 
 
-
-
 let map = L.map('map', {
   center: [-1.669946, -78.652678],
-  zoom: 10,
+  zoom: 12,
 
 });
 
