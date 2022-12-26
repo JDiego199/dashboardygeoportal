@@ -21,7 +21,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
   <meta name="author" content="Creative Tim">
-  <title>Argon Dashboard - Free Dashboard for Bootstrap 4</title>
+  <title>ESPOCH</title>
   <!-- Favicon -->
   <link rel="icon" href="../assets/img/brand/favicon.png" type="image/png">
   <!-- Fonts -->
@@ -32,29 +32,65 @@
   <!-- Page plugins -->
   <!-- Argon CSS -->
   <link rel="stylesheet" href="../assets/css/argon.css?v=1.2.0" type="text/css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.1/dist/leaflet.css" />
   <link rel="stylesheet" href="../assets/css/main.css" type="text/css">
- <!-- <link rel="stylesheet" href="../assets/css/main.7aff45eb.chunk.css" type="text/css">-->
+  <link rel="stylesheet" href="../assets/css/sidenav.css" type="text/css">
+
+  <!-- <link rel="stylesheet" href="../assets/css/main.7aff45eb.chunk.css" type="text/css">-->
 </head>
 
-<body>
+<body id="body-pd">
   <!-- Sidenav -->
-  <nav class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light bg-white" id="sidenav-main">
+
+  <header class="header" id="header">
+    <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
+
+
+  </header>
+  <div class="l-navbar" id="nav-bar">
+    <nav class="nav">
+      <div> <a href="#" class="nav_logo"> <i class='bx bx-layer nav_logo-icon'></i> <span
+            class="nav_logo-name">ESPOCH</span> </a>
+        <div class="nav_list"> <a href="dashboard.html" class="nav_link "> <i class='bx bx-grid-alt nav_icon'></i> <span
+              class="nav_name">Dashboard</span> </a> <a href="map.html" class="nav_link active"> <i class='bx bx-map-pin nav_icon'></i>
+            <span class="nav_name">Mapa</span> </a> <!--<a href="#" class="nav_link"> <i
+              class='bx bx-message-square-detail nav_icon'></i> <span class="nav_name">Messages</span> </a> <a href="#"
+            class="nav_link"> <i class='bx bx-bookmark nav_icon'></i> <span class="nav_name">Bookmark</span> </a> <a
+            href="#" class="nav_link"> <i class='bx bx-folder nav_icon'></i> <span class="nav_name">Files</span> </a> <a
+            href="#" class="nav_link"> <i class='bx bx-bar-chart-alt-2 nav_icon'></i> <span
+              class="nav_name">Stats</span> </a> </div>
+      </div> <a href="#" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">SignOut</span>
+      </a>-->
+    </nav>
+  </div>
+  <!--Container Main start-->
+  <div class="main-content" id="panel">
+    <!-- Topnav -->
+    
+    <div id="map"> </div>
+  </div>
+
+
+  <!--Container Main end-->
+
+  <!-- <nav class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light bg-white" id="sidenav-main">
     <div class="scrollbar-inner">
-      <!-- Brand -->
+     
       <div class="sidenav-header  align-items-center">
-      <!--  <a class="navbar-brand" href="javascript:void(0)">
+        <a class="navbar-brand" href="javascript:void(0)">
           <img src="../assets/img/brand/blue.png" class="navbar-brand-img" alt="...">
-        </a>-->
+        </a>
         <br><br> <h3>ESPOCH</h3>
       </div>
       <div class="navbar-inner">
-        <!-- Collapse -->
+         Collapse 
         <div class="collapse navbar-collapse" id="sidenav-collapse-main">
-          <!-- Nav items -->
+           Nav items 
           <ul class="navbar-nav">
             <li class="nav-item">
               <a class="nav-link" href="dashboard.html">
@@ -79,14 +115,14 @@
 
            
           </ul>
-          <!-- Divider -->
+           Divider 
           <hr class="my-3">
-          <!-- Heading -->
+           Heading 
           <h6 class="navbar-heading p-0 text-muted">
             <span class="docs-normal">Autores</span>
-          </h6>
-          <!-- Navigation -->
-        <!--  <ul class="navbar-nav mb-md-3">
+          </h6>-->
+  <!-- Navigation -->
+  <!--  <ul class="navbar-nav mb-md-3">
             <li class="nav-item">
               <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/getting-started/overview.html" target="_blank">
                 <i class="ni ni-spaceship"></i>
@@ -117,19 +153,15 @@
                 <span class="nav-link-text">Upgrade to PRO</span>
               </a>
             </li>
-          </ul>-->
+          </ul>
         </div>
       </div>
     </div>
-  </nav>
+  </nav>-->
   <!-- Main content -->
-  <div class="main-content" id="panel">
-    <!-- Topnav -->
-    <nav class="navbar navbar-top navbar-expand navbar-dark bg-primary border-bottom">
-      <div class="container-fluid">      
-          <h4 style="color: white; ">Una infancia con futuro</h4>
-          <!-- Search form -->
-         <!-- <form class="navbar-search navbar-search-light form-inline mr-sm-3" id="navbar-search-main">
+
+  <!-- Search form -->
+  <!-- <form class="navbar-search navbar-search-light form-inline mr-sm-3" id="navbar-search-main">
             <div class="form-group mb-0">
               <div class="input-group input-group-alternative input-group-merge">
                 <div class="input-group-prepend">
@@ -138,13 +170,13 @@
                 <input class="form-control" placeholder="Search" type="text">
               </div>
             </div>-->
-          <!--  <button type="button" class="close" data-action="search-close" data-target="#navbar-search-main" aria-label="Close">
+  <!--  <button type="button" class="close" data-action="search-close" data-target="#navbar-search-main" aria-label="Close">
               <span aria-hidden="true">×</span>
             </button>-->
-         
-          <!-- Navbar links -->
-     
-           <!-- <li class="nav-item d-xl-none">
+
+  <!-- Navbar links -->
+
+  <!-- <li class="nav-item d-xl-none">
              
               <div class="pr-3 sidenav-toggler sidenav-toggler-dark" data-action="sidenav-pin" data-target="#sidenav-main">
                 <div class="sidenav-toggler-inner">
@@ -153,13 +185,13 @@
                   <i class="sidenav-toggler-line"></i>
                 </div>
               </div>
-            </li>--> 
-           <!--<li class="nav-item d-sm-none">
+            </li>-->
+  <!--<li class="nav-item d-sm-none">
               <a class="nav-link" href="#" data-action="search-show" data-target="#navbar-search-main">
                 <i class="ni ni-zoom-split-in"></i>
               </a>
-            </li>--> 
-           <!-- <li class="nav-item dropdown">
+            </li>-->
+  <!-- <li class="nav-item dropdown">
               <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="ni ni-bell-55"></i>
               </a>
@@ -271,7 +303,7 @@
               </div>
             </li> -->
 
-           <!-- <li class="nav-item dropdown">
+  <!-- <li class="nav-item dropdown">
               <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="ni ni-ungroup"></i>
               </a>
@@ -317,8 +349,8 @@
               </div>
             </li>
           </ul>-->
-       
-          <!--  <li class="nav-item dropdown">
+
+  <!--  <li class="nav-item dropdown">
               <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <div class="media align-items-center">
                   <span class="avatar avatar-sm rounded-circle">
@@ -355,13 +387,13 @@
                   <span>Logout</span>
                 </a>
               </div>
-            </li>--> 
+            </li>
     
       </div>
-    </nav>
-    <!-- Header -->
-    <!-- Header -->
-    <!--<div class="header bg-primary pb-6">
+    </nav>-->
+  <!-- Header -->
+  <!-- Header -->
+  <!--<div class="header bg-primary pb-6">
       <div class="container-fluid">
         <div class="header-body">
           <div class="row align-items-center py-4">
@@ -383,15 +415,9 @@
         </div>
       </div>
     </div>-->
-    <!-- Page content -->
-    
-          <div class="mapPanel">
-
-            <div id="map"  > </div>
-
-          </div>
-      <!-- Footer -->
-     <!-- <footer class="footer pt-0">
+  <!-- Page content -->
+  <!-- Footer -->
+  <!-- <footer class="footer pt-0">
         <div class="row align-items-center justify-content-lg-between">
           <div class="col-lg-6">
             <div class="copyright text-center  text-lg-left  text-muted">
@@ -415,9 +441,8 @@
             </ul>
           </div>
         </div>
-      </footer>--> 
-    
-  </div>
+      </footer>-->
+
   <!-- Argon Scripts -->
   <!-- Core -->
   <script src="../assets/vendor/jquery/dist/jquery.min.js"></script>
@@ -428,9 +453,14 @@
   <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"></script>
 
   <script src="../assets/js/components/maps/main.js"></script>
+  <script src="../assets/js/components/sidenav.js"></script>
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
 
   <!-- Optional JS -->
   <!-- Argon JS -->

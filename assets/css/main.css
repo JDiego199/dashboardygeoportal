@@ -1,6 +1,5 @@
 body {
-    margin: 0;
-    padding: 0;
+    position: block;
 }
 .mapPanel{
 
@@ -11,7 +10,7 @@ body {
    top: 30px;
     bottom: 10px;*/
     
-    position: relative;
+   position: relative;
     
     padding: 27%;
 
@@ -188,4 +187,7 @@ body {
 }
 .accordion-button::after {
  
+}
+.conteido-dashboard{
+
 }
